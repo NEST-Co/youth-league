@@ -1,0 +1,15 @@
+---
+import League from '../layouts/League.astro';
+import LeagueBoard from '../components/LeagueBoard.tsx';
+import { divisions } from '../lib/league';
+---
+<League title="Schedule" description="Game schedule and results for every division.">
+  <div class="wrap">
+    <h1>Schedule and results</h1>
+    <LeagueBoard client:load mode="schedule" />
+    <noscript><p>Pick a division to see its calendar file instead.</p></noscript>
+    <h2>Add to your calendar</h2>
+    <p>Each file has every game for one division. Open it in your calendar app.</p>
+    <ul>{divisions.map((d) => <li><a href={`/calendar/${d.id}.ics`}>{d.label} calendar file (.ics)</a></li>)}</ul>
+  </div>
+</League>

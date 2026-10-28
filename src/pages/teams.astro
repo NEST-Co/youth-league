@@ -1,0 +1,16 @@
+---
+import League from '../layouts/League.astro';
+import { divisions } from '../lib/league';
+---
+<League title="Teams" description="Every team and coach in each division.">
+  <div class="wrap">
+    <h1>Teams and coaches</h1>
+    {divisions.map((d) => (
+      <section>
+        <h2>{d.label} ({d.id})</h2>
+        <ul class="cards">{d.teams.map((t) => <li><h3>{t.name}</h3><p>Coach: {t.coach}</p></li>)}</ul>
+      </section>
+    ))}
+    <p>Coach names are invented for this concept site.</p>
+  </div>
+</League>

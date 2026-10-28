@@ -1,0 +1,11 @@
+---
+import League from '../layouts/League.astro';
+import LeagueBoard from '../components/LeagueBoard.tsx';
+---
+<League title="Standings" description="League standings for every division.">
+  <div class="wrap">
+    <h1>Standings</h1>
+    <p>Three points for a win, one for a draw. Ties are broken by goal difference, then goals scored.</p>
+    <LeagueBoard client:load mode="standings" />
+  </div>
+</League>

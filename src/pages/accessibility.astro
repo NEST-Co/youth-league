@@ -1,0 +1,43 @@
+---
+import League from '../layouts/League.astro';
+---
+<League title="Accessibility statement" description="How this site was tested for accessibility, with the results.">
+  <div class="wrap prose">
+    <h1>Accessibility statement</h1>
+    <p>This site aims to meet WCAG 2.2 level AA. It is a concept project and the league is fictional, but the tests below were run on this site.</p>
+
+    <h2>Test results, October 28, 2026</h2>
+    <table>
+      <caption>Automated and scripted checks</caption>
+      <thead><tr><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">axe-core (WCAG 2.0 and 2.1 A and AA, plus best practices)</th><td>0 violations on 11 pages, at phone and desktop sizes</td></tr>
+        <tr><th scope="row">Lighthouse accessibility (10 pages, phone profile)</th><td>100 on every page</td></tr>
+        <tr><th scope="row">Lighthouse performance</th><td>100 on every page; the schedule and standings pages weigh about 18 KB, the rest about 4 KB</td></tr>
+        <tr><th scope="row">Lighthouse best practices</th><td>100 on every page</td></tr>
+        <tr><th scope="row">Keyboard</th><td>Skip link is the first stop and every stop shows a visible focus ring</td></tr>
+        <tr><th scope="row">Reflow at 320 and 640 pixels wide</th><td>No horizontal scrolling</td></tr>
+        <tr><th scope="row">Text spacing</th><td>No clipped text</td></tr>
+        <tr><th scope="row">Structure</th><td>One h1 per page, no skipped heading levels, every page has a title and description</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Schedule and standings</h2>
+    <p>The schedule and standings are real tables with column and row headers and a caption. The division, team and game filters have labels, and the number of games shown is announced to screen readers when you change a filter. On narrow screens the schedule stacks into labelled rows. Calendar files (.ics) are available for each division.</p>
+
+    <h2>What was fixed during testing</h2>
+    <ul>
+      <li>The sponsors page skipped a heading level. It now has a heading for the list.</li>
+      <li>The standings table, which has eight columns, scrolled sideways on a 320 pixel screen. Its spacing is now tighter on small screens so it fits.</li>
+    </ul>
+
+    <h2>Not yet tested</h2>
+    <ul>
+      <li>Manual screen reader testing (VoiceOver, NVDA), including the filter announcements. This statement will be updated when it is done.</li>
+      <li>The checks above load each page once. They do not click through every filter combination.</li>
+      <li>Lighthouse "SEO" shows 60, not 100, because the site is deliberately marked <code>noindex</code> so search engines skip this concept project.</li>
+    </ul>
+
+    <p>Tools: axe-core, Lighthouse 12, and Nest Co.'s own scripted checks. Team names, coaches, scores and sponsors are all invented.</p>
+  </div>
+</League>

@@ -1,0 +1,648 @@
+{
+ "season": "Fall 2026",
+ "divisions": [
+  {
+   "id": "U8",
+   "label": "Under 8",
+   "time": "9:00 a.m.",
+   "teams": [
+    {
+     "name": "Herons",
+     "coach": "Priya Nair"
+    },
+    {
+     "name": "Otters",
+     "coach": "Sam Ocampo"
+    },
+    {
+     "name": "Wrens",
+     "coach": "Dana Kowalski"
+    },
+    {
+     "name": "Foxes",
+     "coach": "Lee Abernathy"
+    }
+   ]
+  },
+  {
+   "id": "U10",
+   "label": "Under 10",
+   "time": "10:30 a.m.",
+   "teams": [
+    {
+     "name": "Kestrels",
+     "coach": "Maya Brooks"
+    },
+    {
+     "name": "Badgers",
+     "coach": "Tom Reyes"
+    },
+    {
+     "name": "Salamanders",
+     "coach": "Jo Whitaker"
+    },
+    {
+     "name": "Comets",
+     "coach": "Ren Castillo"
+    }
+   ]
+  },
+  {
+   "id": "U12",
+   "label": "Under 12",
+   "time": "12:00 p.m.",
+   "teams": [
+    {
+     "name": "Thunder",
+     "coach": "Chris Adeyemi"
+    },
+    {
+     "name": "Rapids",
+     "coach": "Ana Lindgren"
+    },
+    {
+     "name": "Pioneers",
+     "coach": "Kai Morrow"
+    },
+    {
+     "name": "Storm",
+     "coach": "Beth Okafor"
+    }
+   ]
+  }
+ ],
+ "games": [
+  {
+   "id": 1,
+   "division": "U8",
+   "date": "2026-09-12",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Herons",
+   "away": "Otters",
+   "homeScore": 3,
+   "awayScore": 3
+  },
+  {
+   "id": 2,
+   "division": "U8",
+   "date": "2026-09-12",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Foxes",
+   "away": "Wrens",
+   "homeScore": 0,
+   "awayScore": 2
+  },
+  {
+   "id": 3,
+   "division": "U8",
+   "date": "2026-09-19",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Herons",
+   "away": "Wrens",
+   "homeScore": 3,
+   "awayScore": 2
+  },
+  {
+   "id": 4,
+   "division": "U8",
+   "date": "2026-09-19",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Foxes",
+   "away": "Otters",
+   "homeScore": 0,
+   "awayScore": 1
+  },
+  {
+   "id": 5,
+   "division": "U8",
+   "date": "2026-09-26",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Herons",
+   "away": "Foxes",
+   "homeScore": 3,
+   "awayScore": 0
+  },
+  {
+   "id": 6,
+   "division": "U8",
+   "date": "2026-09-26",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Wrens",
+   "away": "Otters",
+   "homeScore": 1,
+   "awayScore": 0
+  },
+  {
+   "id": 7,
+   "division": "U8",
+   "date": "2026-10-03",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Otters",
+   "away": "Herons",
+   "homeScore": 2,
+   "awayScore": 1
+  },
+  {
+   "id": 8,
+   "division": "U8",
+   "date": "2026-10-03",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Wrens",
+   "away": "Foxes",
+   "homeScore": 2,
+   "awayScore": 3
+  },
+  {
+   "id": 9,
+   "division": "U8",
+   "date": "2026-10-10",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Wrens",
+   "away": "Herons",
+   "homeScore": 4,
+   "awayScore": 4
+  },
+  {
+   "id": 10,
+   "division": "U8",
+   "date": "2026-10-10",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Otters",
+   "away": "Foxes",
+   "homeScore": 0,
+   "awayScore": 2
+  },
+  {
+   "id": 11,
+   "division": "U8",
+   "date": "2026-10-17",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Foxes",
+   "away": "Herons",
+   "homeScore": 1,
+   "awayScore": 0
+  },
+  {
+   "id": 12,
+   "division": "U8",
+   "date": "2026-10-17",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Otters",
+   "away": "Wrens",
+   "homeScore": 2,
+   "awayScore": 3
+  },
+  {
+   "id": 13,
+   "division": "U8",
+   "date": "2026-10-24",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Herons",
+   "away": "Otters",
+   "homeScore": 5,
+   "awayScore": 2
+  },
+  {
+   "id": 14,
+   "division": "U8",
+   "date": "2026-10-24",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Foxes",
+   "away": "Wrens",
+   "homeScore": 3,
+   "awayScore": 0
+  },
+  {
+   "id": 15,
+   "division": "U8",
+   "date": "2026-10-31",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Herons",
+   "away": "Wrens"
+  },
+  {
+   "id": 16,
+   "division": "U8",
+   "date": "2026-10-31",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Foxes",
+   "away": "Otters",
+   "note": "Moved from Field 2 because Field 2 is closed for drainage repair."
+  },
+  {
+   "id": 17,
+   "division": "U8",
+   "date": "2026-11-07",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Herons",
+   "away": "Foxes"
+  },
+  {
+   "id": 18,
+   "division": "U8",
+   "date": "2026-11-07",
+   "time": "9:00 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Wrens",
+   "away": "Otters"
+  },
+  {
+   "id": 19,
+   "division": "U10",
+   "date": "2026-09-12",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Kestrels",
+   "away": "Badgers",
+   "homeScore": 2,
+   "awayScore": 2
+  },
+  {
+   "id": 20,
+   "division": "U10",
+   "date": "2026-09-12",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Comets",
+   "away": "Salamanders",
+   "homeScore": 1,
+   "awayScore": 3
+  },
+  {
+   "id": 21,
+   "division": "U10",
+   "date": "2026-09-19",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Kestrels",
+   "away": "Salamanders",
+   "homeScore": 2,
+   "awayScore": 3
+  },
+  {
+   "id": 22,
+   "division": "U10",
+   "date": "2026-09-19",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Comets",
+   "away": "Badgers",
+   "homeScore": 3,
+   "awayScore": 1
+  },
+  {
+   "id": 23,
+   "division": "U10",
+   "date": "2026-09-26",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Kestrels",
+   "away": "Comets",
+   "homeScore": 2,
+   "awayScore": 1
+  },
+  {
+   "id": 24,
+   "division": "U10",
+   "date": "2026-09-26",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Salamanders",
+   "away": "Badgers",
+   "homeScore": 1,
+   "awayScore": 1
+  },
+  {
+   "id": 25,
+   "division": "U10",
+   "date": "2026-10-03",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Badgers",
+   "away": "Kestrels",
+   "homeScore": 1,
+   "awayScore": 3
+  },
+  {
+   "id": 26,
+   "division": "U10",
+   "date": "2026-10-03",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Salamanders",
+   "away": "Comets",
+   "homeScore": 0,
+   "awayScore": 1
+  },
+  {
+   "id": 27,
+   "division": "U10",
+   "date": "2026-10-10",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Salamanders",
+   "away": "Kestrels",
+   "homeScore": 3,
+   "awayScore": 3
+  },
+  {
+   "id": 28,
+   "division": "U10",
+   "date": "2026-10-10",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Badgers",
+   "away": "Comets",
+   "homeScore": 2,
+   "awayScore": 0
+  },
+  {
+   "id": 29,
+   "division": "U10",
+   "date": "2026-10-17",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Comets",
+   "away": "Kestrels",
+   "homeScore": 0,
+   "awayScore": 2
+  },
+  {
+   "id": 30,
+   "division": "U10",
+   "date": "2026-10-17",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Badgers",
+   "away": "Salamanders",
+   "homeScore": 2,
+   "awayScore": 3
+  },
+  {
+   "id": 31,
+   "division": "U10",
+   "date": "2026-10-24",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Kestrels",
+   "away": "Badgers",
+   "homeScore": 4,
+   "awayScore": 1
+  },
+  {
+   "id": 32,
+   "division": "U10",
+   "date": "2026-10-24",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Comets",
+   "away": "Salamanders",
+   "homeScore": 1,
+   "awayScore": 2
+  },
+  {
+   "id": 33,
+   "division": "U10",
+   "date": "2026-10-31",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Kestrels",
+   "away": "Salamanders"
+  },
+  {
+   "id": 34,
+   "division": "U10",
+   "date": "2026-10-31",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Comets",
+   "away": "Badgers",
+   "note": "Moved from Field 2 because Field 2 is closed for drainage repair."
+  },
+  {
+   "id": 35,
+   "division": "U10",
+   "date": "2026-11-07",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Kestrels",
+   "away": "Comets"
+  },
+  {
+   "id": 36,
+   "division": "U10",
+   "date": "2026-11-07",
+   "time": "10:30 a.m.",
+   "field": "Riverbend Park Field 2",
+   "home": "Salamanders",
+   "away": "Badgers"
+  },
+  {
+   "id": 37,
+   "division": "U12",
+   "date": "2026-09-12",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Thunder",
+   "away": "Rapids",
+   "homeScore": 2,
+   "awayScore": 3
+  },
+  {
+   "id": 38,
+   "division": "U12",
+   "date": "2026-09-12",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Storm",
+   "away": "Pioneers",
+   "homeScore": 3,
+   "awayScore": 2
+  },
+  {
+   "id": 39,
+   "division": "U12",
+   "date": "2026-09-19",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Thunder",
+   "away": "Pioneers",
+   "homeScore": 3,
+   "awayScore": 1
+  },
+  {
+   "id": 40,
+   "division": "U12",
+   "date": "2026-09-19",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Storm",
+   "away": "Rapids",
+   "homeScore": 0,
+   "awayScore": 1
+  },
+  {
+   "id": 41,
+   "division": "U12",
+   "date": "2026-09-26",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Thunder",
+   "away": "Storm",
+   "homeScore": 1,
+   "awayScore": 2
+  },
+  {
+   "id": 42,
+   "division": "U12",
+   "date": "2026-09-26",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Pioneers",
+   "away": "Rapids",
+   "homeScore": 3,
+   "awayScore": 1
+  },
+  {
+   "id": 43,
+   "division": "U12",
+   "date": "2026-10-03",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Rapids",
+   "away": "Thunder",
+   "homeScore": 1,
+   "awayScore": 3
+  },
+  {
+   "id": 44,
+   "division": "U12",
+   "date": "2026-10-03",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Pioneers",
+   "away": "Storm",
+   "homeScore": 5,
+   "awayScore": 0
+  },
+  {
+   "id": 45,
+   "division": "U12",
+   "date": "2026-10-10",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Pioneers",
+   "away": "Thunder",
+   "homeScore": 0,
+   "awayScore": 2
+  },
+  {
+   "id": 46,
+   "division": "U12",
+   "date": "2026-10-10",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Rapids",
+   "away": "Storm",
+   "homeScore": 1,
+   "awayScore": 1
+  },
+  {
+   "id": 47,
+   "division": "U12",
+   "date": "2026-10-17",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Storm",
+   "away": "Thunder",
+   "homeScore": 2,
+   "awayScore": 1
+  },
+  {
+   "id": 48,
+   "division": "U12",
+   "date": "2026-10-17",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Rapids",
+   "away": "Pioneers",
+   "homeScore": 0,
+   "awayScore": 2
+  },
+  {
+   "id": 49,
+   "division": "U12",
+   "date": "2026-10-24",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Thunder",
+   "away": "Rapids",
+   "homeScore": 1,
+   "awayScore": 2
+  },
+  {
+   "id": 50,
+   "division": "U12",
+   "date": "2026-10-24",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Storm",
+   "away": "Pioneers",
+   "homeScore": 1,
+   "awayScore": 2
+  },
+  {
+   "id": 51,
+   "division": "U12",
+   "date": "2026-10-31",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Thunder",
+   "away": "Pioneers"
+  },
+  {
+   "id": 52,
+   "division": "U12",
+   "date": "2026-10-31",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Storm",
+   "away": "Rapids"
+  },
+  {
+   "id": 53,
+   "division": "U12",
+   "date": "2026-11-07",
+   "time": "12:00 p.m.",
+   "field": "Mill Road Field",
+   "home": "Thunder",
+   "away": "Storm"
+  },
+  {
+   "id": 54,
+   "division": "U12",
+   "date": "2026-11-07",
+   "time": "12:00 p.m.",
+   "field": "Riverbend Park Field 1",
+   "home": "Pioneers",
+   "away": "Rapids"
+  }
+ ]
+}

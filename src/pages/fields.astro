@@ -1,0 +1,19 @@
+---
+import League from '../layouts/League.astro';
+import { fieldInfo, closures, fmtDate } from '../lib/league';
+---
+<League title="Fields" description="Where we play, with directions and current closures.">
+  <div class="wrap prose">
+    <h1>Fields</h1>
+    <h2>Closures</h2>
+    {closures.map((c) => <p><strong>{fmtDate(c.date)}:</strong> {c.field}. {c.reason}</p>)}
+    <h2>Where we play</h2>
+    <ul>{fieldInfo.map((f) => <li><strong>{f.name}</strong>, {f.address}. {f.note}</li>)}</ul>
+    <h2>Game day basics</h2>
+    <ul>
+      <li>Arrive 15 minutes before kickoff.</li>
+      <li>Bring water. Shin guards are required.</li>
+      <li>If we cancel for weather, the schedule page and a note on this site are updated by 7 a.m.</li>
+    </ul>
+  </div>
+</League>

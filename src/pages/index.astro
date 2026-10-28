@@ -1,0 +1,42 @@
+---
+import League from '../layouts/League.astro';
+import { divisions, games, played, standings, fmtDate, closures, season } from '../lib/league';
+const today = new Date().toISOString().slice(0, 10);
+const nextDate = games.filter((g) => g.date >= today && !played(g)).map((g) => g.date).sort()[0];
+const next = games.filter((g) => g.date === nextDate).sort((a, b) => a.division.localeCompare(b.division));
+const lastDate = games.filter((g) => played(g)).map((g) => g.date).sort().at(-1)!;
+const results = games.filter((g) => g.date === lastDate);
+const closure = closures.find((c) => c.date >= today);
+---
+<League title="Home" description="Schedules, standings, fields and registration for Riverbend Youth Soccer.">
+  <div class="hero"><div class="wrap">
+    <h1>Soccer for every kid in Riverbend</h1>
+    <p>{season} is underway. Find a game, check the standings or sign up for spring.</p>
+    <a class="btn" href="/schedule">See the schedule</a> <a class="btn" href="/register">Register for spring</a>
+  </div></div>
+  <div class="wrap">
+    {closure && (
+      <div class="alert" role="region" aria-label="Field closure"><p><strong>Field closure, {fmtDate(closure.date)}:</strong> {closure.field}. {closure.reason}</p></div>
+    )}
+    <div class="two">
+      <section>
+        <h2>Next games, {nextDate ? fmtDate(nextDate, { weekday: 'long', month: 'long', day: 'numeric' }) : ''}</h2>
+        <ul class="list">{next.map((g) => (
+          <li><strong>{g.home} vs {g.away}</strong> ({g.division})<p class="meta">{g.time} · {g.field}</p></li>
+        ))}</ul>
+        <p><a href="/schedule">Full schedule</a> · <a href="/fields">Field directions</a></p>
+      </section>
+      <section>
+        <h2>Latest results, {fmtDate(lastDate, { month: 'long', day: 'numeric' })}</h2>
+        <ul class="list">{results.map((g) => (
+          <li>{g.home} {g.homeScore}, {g.away} {g.awayScore} <span class="meta">({g.division})</span></li>
+        ))}</ul>
+        <p><a href="/standings">Standings</a></p>
+      </section>
+    </div>
+    <h2>Division leaders</h2>
+    <ul class="cards">{divisions.map((d) => { const top = standings(d.id)[0]; return (
+      <li><h3>{d.label}</h3><p>{top.team}, {top.points} points from {top.played} games</p></li>
+    ); })}</ul>
+  </div>
+</League>
