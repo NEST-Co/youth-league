@@ -1,19 +1,19 @@
 ---
 import League from '../layouts/League.astro';
 const sponsors = [
-  { name: 'Hartwell Hardware', note: 'Jerseys for the Under 8 division' },
-  { name: 'Corner Table Diner', note: 'Post-game orange slices and the end-of-season party' },
-  { name: 'Lindqvist Dental', note: 'Under 10 equipment' },
-  { name: 'Riverbend Credit Union', note: 'Field maintenance fund' },
+  { name: 'Hartwell Hardware', note: 'Jerseys for the Under 8 division', m: 'HH', c: '#E4511E' },
+  { name: 'Corner Table Diner', note: 'Post-game orange slices and the end-of-season party', m: 'CT', c: '#1F9D5B' },
+  { name: 'Lindqvist Dental', note: 'Under 10 equipment', m: 'LD', c: '#2D7BFF' },
+  { name: 'Riverbend Credit Union', note: 'Field maintenance fund', m: 'RC', c: '#7C4DCC' },
 ];
 ---
-<League title="Sponsors" description="Local businesses that support Riverbend Youth Soccer.">
-  <div class="wrap">
-    <h1>Our sponsors</h1>
-    <p>These fictional businesses stand in for the local sponsors a real league would thank here.</p>
-    <h2>Thank you to</h2>
-    <ul class="cards">{sponsors.map((s) => <li><h3>{s.name}</h3><p>{s.note}</p></li>)}</ul>
-    <h2>Become a sponsor</h2>
-    <p>Sponsorship supports equipment, fields and financial help for families. <a href="/contact">Contact the league.</a></p>
+<League title="Sponsors" description="Local businesses that support Riverbend Youth Soccer." eyebrow="Our community" heading="Our sponsors" lead="These fictional businesses stand in for the local sponsors a real league would thank here.">
+  <div class="wrap body">
+    <h2 class="visually-hidden">Current sponsors</h2>
+    <ul class="logos">{sponsors.map((s) => <li><div class="logo-tile"><span class="mono" style={`background:${s.c}`} aria-hidden="true">{s.m}</span><div><h3>{s.name}</h3><p>{s.note}</p></div></div></li>)}</ul>
+    <div class="price" style="margin-top:3rem">
+      <div><h2 style="color:#fff;margin:0 0 .4rem;font-size:2rem">Become a sponsor</h2><p>Sponsorship supports equipment, fields and financial help for families.</p></div>
+      <a class="btn" href="/contact" style="margin-left:auto">Contact the league</a>
+    </div>
   </div>
 </League>

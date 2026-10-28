@@ -1,16 +1,15 @@
 ---
 import League from '../layouts/League.astro';
+import Crest from '../components/Crest.tsx';
 import { divisions } from '../lib/league';
 ---
-<League title="Teams" description="Every team and coach in each division.">
-  <div class="wrap">
-    <h1>Teams and coaches</h1>
+<League title="Teams" description="Every team and coach in each division." eyebrow="Meet the squads" heading="Teams and coaches" lead="Three divisions, four teams each. Coach names are invented for this concept site.">
+  <div class="wrap body">
     {divisions.map((d) => (
       <section>
-        <h2>{d.label} ({d.id})</h2>
-        <ul class="cards">{d.teams.map((t) => <li><h3>{t.name}</h3><p>Coach: {t.coach}</p></li>)}</ul>
+        <h2 class="div-title"><span>{d.id}</span>{d.label}</h2>
+        <ul class="card-grid">{d.teams.map((t) => <li><div class="team-card"><Crest name={t.name} size={52} /><div><h3>{t.name}</h3><p>Coach: {t.coach}</p></div></div></li>)}</ul>
       </section>
     ))}
-    <p>Coach names are invented for this concept site.</p>
   </div>
 </League>

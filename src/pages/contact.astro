@@ -1,10 +1,12 @@
 ---
 import League from '../layouts/League.astro';
 ---
-<League title="Contact" description="How to reach Riverbend Youth Soccer.">
-  <div class="wrap prose">
-    <h1>Contact the league</h1>
-    <p>Phone: (555) 010-0166<br />Email: <a href="mailto:play@riverbend-soccer.example">play@riverbend-soccer.example</a></p>
-    <p>This is a concept site, so there is no contact form.</p>
+<League title="Contact" description="How to reach Riverbend Youth Soccer." eyebrow="Say hi" heading="Contact the league" lead="Questions about registration, schedules or sponsoring? We will point you the right way.">
+  <div class="wrap body">
+    <div class="card-grid" style="max-width:760px">
+      <div class="panel"><h2>Call</h2><p style="margin:0">(555) 010-0166</p></div>
+      <div class="panel"><h2>Email</h2><p style="margin:0"><a href="mailto:play@riverbend-soccer.example">play@riverbend-soccer.example</a></p></div>
+    </div>
+    <p style="margin-top:1.5rem">This is a concept site, so there is no contact form.</p>
   </div>
 </League>

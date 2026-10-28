@@ -38,3 +38,10 @@ export const fieldInfo = [
   { name: 'Riverbend Park Field 2', address: '500 River Road', note: 'Behind the playground. Short walk from the lot.' },
   { name: 'Mill Road Field', address: '88 Mill Road', note: 'Small lot. Please carpool when you can.' },
 ];
+
+const colors: Record<string, [string, string]> = {
+  Herons: ['#2D7BFF', '#fff'], Otters: ['#8B5E3C', '#fff'], Wrens: ['#F59E0B', '#1B1200'], Foxes: ['#E4511E', '#fff'],
+  Kestrels: ['#7C4DCC', '#fff'], Badgers: ['#2B2F36', '#fff'], Salamanders: ['#1F9D5B', '#fff'], Comets: ['#14B8CC', '#06232A'],
+  Thunder: ['#FACC15', '#1B1700'], Rapids: ['#0E7AA8', '#fff'], Pioneers: ['#A63232', '#fff'], Storm: ['#5B6B82', '#fff'],
+};
+export const teamColor = (name: string): [string, string] => colors[name] ?? ['#0B1F3F', '#fff'];

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'preact/hooks';
 import { divisions, games, played, standings, fmtDate, type Game } from '../lib/league';
+import Crest from './Crest';
 
 type Props = { mode: 'schedule' | 'standings'; initialDivision?: string };
 
@@ -66,8 +67,8 @@ export default function LeagueBoard({ mode, initialDivision }: Props) {
             <th scope="col"><abbr title="Goals for">GF</abbr></th><th scope="col"><abbr title="Goals against">GA</abbr></th>
             <th scope="col"><abbr title="Points">Pts</abbr></th>
           </tr></thead>
-          <tbody>{table.map((r) => (
-            <tr><th scope="row">{r.team}</th><td>{r.played}</td><td>{r.won}</td><td>{r.drawn}</td><td>{r.lost}</td><td>{r.gf}</td><td>{r.ga}</td><td><strong>{r.points}</strong></td></tr>
+          <tbody>{table.map((r, i) => (
+            <tr class={i === 0 ? 'lead' : undefined}><th scope="row"><span class="tn"><span class="pos" aria-hidden="true">{i + 1}</span><Crest name={r.team} size={30} />{r.team}</span></th><td>{r.played}</td><td>{r.won}</td><td>{r.drawn}</td><td>{r.lost}</td><td>{r.gf}</td><td>{r.ga}</td><td><strong>{r.points}</strong></td></tr>
           ))}</tbody>
         </table>
       ) : (
@@ -77,7 +78,7 @@ export default function LeagueBoard({ mode, initialDivision }: Props) {
           <tbody>{list.map((g: Game) => (
             <tr>
               <th scope="row"><time dateTime={g.date}>{fmtDate(g.date)}</time></th>
-              <td data-label="Game">{g.home} vs {g.away}</td>
+              <td data-label="Game"><span class="vs-cell"><span class="t"><Crest name={g.home} size={26} />{g.home}</span><span class="o">vs</span><span class="t"><Crest name={g.away} size={26} />{g.away}</span></span></td>
               <td data-label={played(g) ? 'Final' : 'Kickoff'}>{played(g) ? `${g.home} ${g.homeScore}, ${g.away} ${g.awayScore}` : g.time}</td>
               <td data-label="Field">{g.field}{g.note && <span class="note"> {g.note}</span>}</td>
             </tr>

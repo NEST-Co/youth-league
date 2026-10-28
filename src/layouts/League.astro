@@ -2,83 +2,52 @@
 import Base from './Base.astro';
 import Logo from '../components/Logo.astro';
 import { season } from '../lib/league';
-interface Props { title: string; description?: string }
+import '../styles/league.css';
+interface Props { title: string; description?: string; heading?: string; lead?: string; eyebrow?: string; home?: boolean }
 const site = { name: 'Riverbend Youth Soccer', phone: '(555) 010-0166', email: 'play@riverbend-soccer.example' };
 const nav = [
   { href: '/schedule', label: 'Schedule' },
   { href: '/standings', label: 'Standings' },
   { href: '/teams', label: 'Teams' },
   { href: '/fields', label: 'Fields' },
-  { href: '/register', label: 'Register' },
   { href: '/sponsors', label: 'Sponsors' },
   { href: '/about', label: 'About' },
 ];
-const { title, description = `${title}: ${site.name}, a fictional youth soccer league.` } = Astro.props;
+const { title, description = `${title}: ${site.name}, a fictional youth soccer league.`, heading, lead, eyebrow, home = false } = Astro.props;
 const path = Astro.url.pathname;
 ---
 <Base title={title} description={description} siteName={site.name}>
   <div slot="header" class="site-head">
     <div class="wrap bar">
-      <a class="brand" href="/"><Logo /><span>{site.name}</span></a>
+      <a class="brand" href="/"><Logo /><span class="brand-text"><span class="brand-name">Riverbend</span><span class="brand-sub">Youth Soccer</span></span></a>
       <nav aria-label="Main">
         <ul>
           {nav.map((n) => <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
+          <li><a class="cta" href="/register" aria-current={path.startsWith('/register') ? 'page' : undefined}>Register</a></li>
         </ul>
       </nav>
     </div>
   </div>
+  {!home && heading && (
+    <div class="page-head">
+      <div class="wrap">
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1>{heading}</h1>
+        {lead && <p class="lead">{lead}</p>}
+      </div>
+    </div>
+  )}
   <slot />
   <div slot="footer" class="site-foot">
-    <div class="wrap">
-      <p><strong>{site.name}</strong> · {season}<br />{site.phone} · <a href={`mailto:${site.email}`}>{site.email}</a></p>
-      <p><a href="/contact">Contact</a> · <a href="/accessibility">Accessibility statement</a></p>
+    <div class="wrap foot">
+      <div>
+        <p class="foot-brand"><Logo /> {site.name}</p>
+        <p>{season} · Every kid plays.</p>
+      </div>
+      <div>
+        <p><a href={`mailto:${site.email}`}>{site.email}</a><br />{site.phone}</p>
+        <p><a href="/contact">Contact</a> · <a href="/register">Register</a> · <a href="/accessibility">Accessibility statement</a></p>
+      </div>
     </div>
   </div>
 </Base>
-<style is:global>
-  :root { --brand:#0A4D8C; --accent:#B7410E; --surface:#F1F5FA; --display:"Avenir Next","Trebuchet MS",system-ui,sans-serif; }
-  .site-head{border-bottom:4px solid var(--brand)}
-  .bar{display:flex;flex-wrap:wrap;gap:.5rem 2rem;align-items:center;justify-content:space-between;padding-block:1rem}
-  .brand{display:inline-flex;align-items:center;gap:.6rem;font:800 1.4rem var(--display);color:var(--brand);text-decoration:none}
-  nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;list-style:none;margin:0;padding:0}
-  nav a{display:inline-block;padding:.6rem .25rem;color:var(--ink);font-weight:600}
-  nav a[aria-current="page"]{color:var(--brand);text-decoration-thickness:3px}
-  main{padding-block:2rem 4rem}
-  .site-foot{background:var(--surface);border-top:1px solid var(--line);padding-block:2rem}
-  .hero{background:var(--brand);color:#fff;padding-block:3rem}
-  .hero h1{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 .5rem}
-  .hero p{font-size:1.25rem;margin:0 0 1.25rem;max-width:var(--measure)}
-  .hero .btn{background:#fff;color:var(--brand)}
-  .hero a:not(.btn){color:#fff}
-  .alert{border-left:6px solid var(--accent);background:#FFF3EC;padding:.9rem 1.1rem;margin-block:1.5rem}
-  .alert p{margin:0}
-  .two{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  .list{list-style:none;padding:0}
-  .list li{border-bottom:1px solid var(--line);padding:.8rem 0;max-width:none}
-  .meta{color:var(--muted);font-size:.95rem;margin:0}
-  .prose{max-width:var(--measure)}
-  .prose h2{margin-top:2rem}
-  .cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));list-style:none;padding:0}
-  .cards li{border:1px solid var(--line);border-radius:8px;padding:1.1rem;max-width:none}
-  .cards h3{margin:0 0 .25rem}
-  .controls{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:.5rem}
-  .controls label{display:block;font-weight:700;margin-bottom:.25rem}
-  select{font:inherit;min-height:44px;padding:.4rem .7rem;border:2px solid var(--ink);border-radius:6px;background:var(--bg);color:var(--ink)}
-  .status{color:var(--muted);min-height:1.6em;margin:.25rem 0 .75rem}
-  .note{color:var(--accent);font-weight:600;display:block}
-  table{border-collapse:collapse;width:100%}
-  th,td{text-align:left;padding:.7rem;border-bottom:1px solid var(--line);vertical-align:top}
-  caption{text-align:left;font-weight:700;padding-bottom:.5rem}
-  abbr{text-decoration:none;border-bottom:1px dotted currentColor}
-  @media (max-width:640px){
-    table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-    table.stack tr{display:block;border-bottom:1px solid var(--line);padding:.6rem 0}
-    table.stack th,table.stack td{display:block;border:0;padding:.15rem 0}
-    table.stack td[data-label]::before{content:attr(data-label) ": ";font-weight:700}
-  }
-  @media (max-width:480px){
-    table:not(.stack) th,table:not(.stack) td{padding:.55rem .2rem;font-size:.95rem}
-    table:not(.stack) th[scope=row]{overflow-wrap:anywhere;padding-right:.4rem}
-  }
-  @media print{.skip-link,.concept-note,nav,.controls{display:none}}
-</style>

@@ -1,42 +1,79 @@
 ---
 import League from '../layouts/League.astro';
+import Crest from '../components/Crest.tsx';
 import { divisions, games, played, standings, fmtDate, closures, season } from '../lib/league';
 const today = new Date().toISOString().slice(0, 10);
 const nextDate = games.filter((g) => g.date >= today && !played(g)).map((g) => g.date).sort()[0];
-const next = games.filter((g) => g.date === nextDate).sort((a, b) => a.division.localeCompare(b.division));
+const next = games.filter((g) => g.date === nextDate).sort((a, b) => divisions.findIndex((d) => d.id === a.division) - divisions.findIndex((d) => d.id === b.division) || a.id - b.id);
 const lastDate = games.filter((g) => played(g)).map((g) => g.date).sort().at(-1)!;
-const results = games.filter((g) => g.date === lastDate);
+const results = games.filter((g) => g.date === lastDate).sort((a, b) => divisions.findIndex((d) => d.id === a.division) - divisions.findIndex((d) => d.id === b.division) || a.id - b.id);
 const closure = closures.find((c) => c.date >= today);
+const teamCount = divisions.reduce((n, d) => n + d.teams.length, 0);
+const sponsors = [['Hartwell Hardware', 'HH', '#E4511E'], ['Corner Table Diner', 'CT', '#1F9D5B'], ['Lindqvist Dental', 'LD', '#2D7BFF'], ['Riverbend Credit Union', 'RC', '#7C4DCC']];
 ---
-<League title="Home" description="Schedules, standings, fields and registration for Riverbend Youth Soccer.">
-  <div class="hero"><div class="wrap">
-    <h1>Soccer for every kid in Riverbend</h1>
-    <p>{season} is underway. Find a game, check the standings or sign up for spring.</p>
-    <a class="btn" href="/schedule">See the schedule</a> <a class="btn" href="/register">Register for spring</a>
-  </div></div>
-  <div class="wrap">
-    {closure && (
-      <div class="alert" role="region" aria-label="Field closure"><p><strong>Field closure, {fmtDate(closure.date)}:</strong> {closure.field}. {closure.reason}</p></div>
-    )}
-    <div class="two">
-      <section>
-        <h2>Next games, {nextDate ? fmtDate(nextDate, { weekday: 'long', month: 'long', day: 'numeric' }) : ''}</h2>
-        <ul class="list">{next.map((g) => (
-          <li><strong>{g.home} vs {g.away}</strong> ({g.division})<p class="meta">{g.time} · {g.field}</p></li>
-        ))}</ul>
-        <p><a href="/schedule">Full schedule</a> · <a href="/fields">Field directions</a></p>
-      </section>
-      <section>
-        <h2>Latest results, {fmtDate(lastDate, { month: 'long', day: 'numeric' })}</h2>
-        <ul class="list">{results.map((g) => (
-          <li>{g.home} {g.homeScore}, {g.away} {g.awayScore} <span class="meta">({g.division})</span></li>
-        ))}</ul>
-        <p><a href="/standings">Standings</a></p>
-      </section>
+<League home title="Home" description="Schedules, standings, fields and registration for Riverbend Youth Soccer.">
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap">
+      <div>
+        <span class="kicker">{season} is live</span>
+        <h1 id="hero-h">Every kid <span>plays.</span></h1>
+        <p class="sub">Find a game, check the standings or sign up for spring. Soccer for every kid in Riverbend.</p>
+        <div class="btns"><a class="btn" href="/schedule">See the schedule</a><a class="btn line" href="/register">Register for spring</a></div>
+      </div>
+      <div class="art"><img src="/img/hero-league.svg" alt="Four kids in bright jerseys playing soccer under the lights: one kicking, one running, a goalkeeper ready, and a teammate cheering" width="720" height="600" fetchpriority="high" /></div>
     </div>
-    <h2>Division leaders</h2>
-    <ul class="cards">{divisions.map((d) => { const top = standings(d.id)[0]; return (
-      <li><h3>{d.label}</h3><p>{top.team}, {top.points} points from {top.played} games</p></li>
-    ); })}</ul>
+  </section>
+
+  <div class="wrap">
+    <ul class="stats" aria-label="League at a glance">
+      <li><b>{divisions.length}</b><span>divisions</span></li>
+      <li><b>{teamCount}</b><span>teams this season</span></li>
+      <li><b>5–12</b><span>ages welcome</span></li>
+      <li><b>$60</b><span>and no child is turned away</span></li>
+    </ul>
+
+    {closure && (
+      <div class="alert" role="region" aria-label="Field closure"><span class="ico" aria-hidden="true">!</span><p><strong>Field closure, {fmtDate(closure.date)}:</strong> {closure.field}. {closure.reason}</p></div>
+    )}
+
+    <section class="section" aria-labelledby="next-h">
+      <div class="sec-head"><h2 id="next-h">Next games · {nextDate ? fmtDate(nextDate, { weekday: 'long', month: 'long', day: 'numeric' }) : ''}</h2><span><a href="/schedule">Full schedule</a> · <a href="/fields">Field directions</a></span></div>
+      <ul class="matches">{next.map((g) => (
+        <li><article class="match" aria-label={`${g.home} versus ${g.away}`}>
+          <span class="div">{g.division}</span>
+          <div class="row"><span class="team"><Crest name={g.home} size={52} />{g.home}</span><span class="vs" aria-hidden="true">VS</span><span class="team"><Crest name={g.away} size={52} />{g.away}</span></div>
+          <p class="info" style="margin:0"><span><b>{g.time}</b></span><span>{g.field}</span></p>
+        </article></li>
+      ))}</ul>
+    </section>
+
+    <section class="section" aria-labelledby="res-h">
+      <div class="sec-head"><h2 id="res-h">Latest results · {fmtDate(lastDate, { month: 'long', day: 'numeric' })}</h2><a href="/standings">Standings</a></div>
+      <ul class="matches">{results.map((g) => (
+        <li><article class="match" aria-label={`${g.home} ${g.homeScore}, ${g.away} ${g.awayScore}`}>
+          <span class="div">{g.division} · Final</span>
+          <div class="row"><span class="team"><Crest name={g.home} size={52} />{g.home}</span><span class="score" aria-hidden="true">{g.homeScore}<small>–</small>{g.awayScore}</span><span class="team"><Crest name={g.away} size={52} />{g.away}</span></div>
+        </article></li>
+      ))}</ul>
+    </section>
+
+    <section class="section" aria-labelledby="lead-h">
+      <div class="sec-head"><h2 id="lead-h">Division leaders</h2></div>
+      <ul class="leaders">{divisions.map((d) => { const top = standings(d.id)[0]; return (
+        <li><div class="leader" data-div={d.id}><Crest name={top.team} size={56} /><div><span class="lab">{d.label}</span><h3>{top.team}</h3><p>{top.points} points from {top.played} games</p></div></div></li>
+      ); })}</ul>
+    </section>
+  </div>
+
+  <section class="cta-band" aria-labelledby="cta-h">
+    <div class="wrap">
+      <div><h2 id="cta-h">Spring sign-up opens January 5</h2><p>Ages 5 to 12. Jersey and socks included. Financial help is there for anyone who asks, and you will not be asked why.</p></div>
+      <a class="btn dark" href="/register">How to register</a>
+    </div>
+  </section>
+
+  <div class="wrap section" style="padding-bottom:1rem">
+    <div class="sec-head"><h2>Thank you, sponsors</h2><a href="/sponsors">All sponsors</a></div>
+    <ul class="logos">{sponsors.map(([n, m, c]) => <li><div class="logo-tile"><span class="mono" style={`background:${c}`} aria-hidden="true">{m}</span><h3>{n}</h3></div></li>)}</ul>
   </div>
 </League>

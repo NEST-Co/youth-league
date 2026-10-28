@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="mow" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="20" height="40" fill="#3FA95A"/><rect x="20" width="20" height="40" fill="#389E52"/></pattern>
+    <g id="tr"><circle r="20" fill="#2F7F47"/><circle cx="-6" cy="-6" r="12" fill="#3A9455"/></g>
+  </defs>
+  <rect width="800" height="520" fill="#CFE8C6"/>
+  <!-- creek -->
+  <path d="M-10 410C150 380 250 450 420 420S650 380 810 430V540H-10Z" fill="#8CC8E6"/>
+  <path d="M-10 410C150 380 250 450 420 420S650 380 810 430" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="3"/>
+  <!-- roads -->
+  <rect x="0" y="44" width="800" height="34" fill="#59626F"/><path d="M0 61H800" stroke="#F2D35B" stroke-width="3" stroke-dasharray="22 16"/>
+  <text x="640" y="67" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#fff" letter-spacing="1">RIVER ROAD</text>
+  <!-- parking -->
+  <rect x="40" y="100" width="170" height="86" rx="8" fill="#8B94A3"/>
+  <g stroke="#fff" stroke-width="2.500" opacity=".85"><path d="M60 112v36M80 112v36M100 112v36M120 112v36M140 112v36M160 112v36M180 112v36M60 150v28M80 150v28M100 150v28M120 150v28M140 150v28M160 150v28M180 150v28"/></g>
+  <text x="125" y="196" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="13" fill="#2B2F36">PARKING</text>
+  <!-- field 1 -->
+  <rect x="260" y="100" width="260" height="170" rx="10" fill="url(#mow)" stroke="#fff" stroke-width="4"/>
+  <g stroke="#fff" stroke-width="3" fill="none" opacity=".95"><path d="M390 100v170"/><circle cx="390" cy="185" r="26"/><rect x="260" y="150" width="40" height="70"/><rect x="480" y="150" width="40" height="70"/></g>
+  <rect x="520" y="156" width="10" height="58" fill="none" stroke="#fff" stroke-width="3"/><rect x="250" y="156" width="10" height="58" fill="none" stroke="#fff" stroke-width="3"/>
+  <!-- field 2 -->
+  <rect x="570" y="120" width="190" height="270" rx="10" fill="url(#mow)" stroke="#fff" stroke-width="4"/>
+  <g stroke="#fff" stroke-width="3" fill="none" opacity=".95"><path d="M570 255h190"/><circle cx="665" cy="255" r="24"/><rect x="620" y="120" width="90" height="34"/><rect x="620" y="356" width="90" height="34"/></g>
+  <g stroke="#FF6B2C" stroke-width="6" stroke-linecap="round" opacity=".9"><path d="M580 130l170 250M750 130L580 380"/></g>
+  <!-- playground + snack -->
+  <rect x="40" y="230" width="150" height="110" rx="14" fill="#E9D9B0"/>
+  <circle cx="90" cy="285" r="16" fill="#E4511E"/><rect x="120" y="262" width="44" height="30" rx="4" fill="#2D7BFF"/><path d="M118 306h50" stroke="#FACC15" stroke-width="8" stroke-linecap="round"/>
+  <rect x="300" y="300" width="64" height="40" rx="6" fill="#C2492E"/><path d="M294 300h76l-8-16h-60z" fill="#F7E3C2"/><text x="332" y="326" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="11" fill="#fff">SNACKS</text>
+  <!-- trees -->
+  <use href="#tr" x="240" y="120"/><use href="#tr" x="230" y="300"/><use href="#tr" x="520" y="330"/><use href="#tr" x="540" y="130"/><use href="#tr" x="780" y="200"/><use href="#tr" x="30" y="380"/><use href="#tr" x="760" y="470"/>
+  <!-- legend labels -->
+  <g font-family="Arial,sans-serif" font-weight="800" font-size="15" fill="#fff" stroke="#0B1F3F" stroke-width="5" paint-order="stroke"><text x="390" y="90" text-anchor="middle">FIELD 1</text><text x="665" y="112" text-anchor="middle">FIELD 2</text></g>
+</svg>
