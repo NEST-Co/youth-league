@@ -7,18 +7,18 @@ import League from '../layouts/League.astro';
 
     <h2>Test results, October 28, 2026</h2>
     <table>
-      <caption>Automated and scripted checks, run after the October 28 redesign</caption>
+      <caption>Automated and scripted checks, run after the October 28 redesign and the photo update</caption>
       <thead><tr><th scope="col">Check</th><th scope="col">Result</th></tr></thead>
       <tbody>
         <tr><th scope="row">axe-core (WCAG 2.0 and 2.1 A and AA, plus best practices)</th><td>0 violations on all 11 pages, at phone and desktop sizes</td></tr>
-        <tr><th scope="row">Lighthouse accessibility (5 pages: home, schedule, standings, teams, fields, phone profile)</th><td>100 on every page tested</td></tr>
-        <tr><th scope="row">Lighthouse performance</th><td>99 to 100; the schedule and standings pages are the heaviest because they load the filter code</td></tr>
+        <tr><th scope="row">Lighthouse accessibility (3 pages: home, standings, fields, phone profile)</th><td>100 on every page tested</td></tr>
+        <tr><th scope="row">Lighthouse performance</th><td>95 to 100; the home page is the heaviest because of its photo</td></tr>
         <tr><th scope="row">Lighthouse best practices</th><td>100 on every page tested</td></tr>
         <tr><th scope="row">Keyboard</th><td>Skip link is the first stop and every stop shows a visible focus ring</td></tr>
         <tr><th scope="row">Reflow at 320 and 640 pixels wide</th><td>No horizontal scrolling</td></tr>
         <tr><th scope="row">Text spacing</th><td>No clipped text</td></tr>
         <tr><th scope="row">Structure</th><td>One h1 per page, no skipped heading levels, every page has a title and description, every image has an alt attribute (empty for decoration)</td></tr>
-        <tr><th scope="row">Page weight</th><td>About 80 KB or less for any page, including images and the schedule filter code</td></tr>
+        <tr><th scope="row">Page weight</th><td>About 355 KB or less for any page, including images. The teams page is the heaviest because it shows all twelve badges</td></tr>
       </tbody>
     </table>
 
@@ -30,13 +30,14 @@ import League from '../layouts/League.astro';
       <li>The large division letters on the leader cards failed the contrast check. They are now purely decorative, drawn in the stylesheet, and not part of the page text.</li>
       <li>The Sponsors and Contact pages skipped a heading level. Both now step down in order.</li>
       <li>Team badges are decorative and hidden from screen readers, because every team name is written out beside its badge.</li>
+      <li>The photos were resized to about twice the size they show on screen, which brought the home page performance score back up.</li>
     </ul>
 
     <h2>Not yet tested</h2>
     <ul>
       <li>Manual screen reader testing (VoiceOver, NVDA), including the filter announcements. This statement will be updated when it is done.</li>
       <li>The checks above load each page once. They do not click through every filter combination.</li>
-      <li>Lighthouse "SEO" shows 60, not 100, because the site is deliberately marked <code>noindex</code> so search engines skip this concept project.</li>
+      <li>Lighthouse "SEO" shows 60 to 63, not 100, because the site is deliberately marked <code>noindex</code> so search engines skip this concept project.</li>
     </ul>
 
     <p>Tools: axe-core, Lighthouse 12, and Nest Co.'s own scripted checks. Team names, coaches, scores and sponsors are all invented.</p>

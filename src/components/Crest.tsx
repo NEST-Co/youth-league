@@ -2,8 +2,14 @@ import { teamColor } from '../lib/league';
 
 type Props = { name: string; size?: number };
 
+const badges = ['Herons', 'Otters', 'Wrens', 'Foxes', 'Kestrels', 'Badgers', 'Salamanders', 'Comets', 'Thunder', 'Rapids', 'Pioneers', 'Storm'];
+
 // Decorative team badge. The team name is always written out beside it, so it is hidden from assistive tech.
+// Teams without a badge image get a generated shield in their colors.
 export default function Crest({ name, size = 40 }: Props) {
+  if (badges.includes(name)) {
+    return <img class="crest" src={`/img/crests/${name.toLowerCase()}.png`} alt="" width={size} height={Math.round(size * 1.15)} loading="lazy" />;
+  }
   const [bg, fg] = teamColor(name);
   return (
     <svg class="crest" aria-hidden="true" focusable="false" width={size} height={size * 1.15} viewBox="0 0 40 46">
